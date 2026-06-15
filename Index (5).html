@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV VALE | Melhor Sistema de Transmissão</title>
+    <style>
+        :root {
+            --primary-color: #ff0055; /* Cor de destaque moderna */
+            --secondary-color: #0b0c10;
+            --background-dark: #1f2833;
+            --text-light: #ffffff;
+            --text-gray: #c5a059;
+            --accent-green: #25d366; /* Cor do WhatsApp */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header / Nav */
+        header {
+            background: rgba(11, 12, 16, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .cta-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-header:hover {
+            background-color: #cc0044;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5% 80px 5%;
+            text-align: center;
+            background: linear-gradient(rgba(11, 12, 16, 0.8), rgba(11, 12, 16, 0.95)), url('https://unsplash.com') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #ddd;
+        }
+
+        .badge-teste {
+            display: inline-block;
+            background-color: #fffb00;
+            color: #000;
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .btn-principal {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-principal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Planos Section */
+        .planos {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .planos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .planos h2 span {
+            color: var(--primary-color);
+        }
+
+        .grid-planos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card-plano {
+            background-color: #151922;
+            border: 1px solid #2d3748;
+            border-radius: 10px;
+            padding: 40px 30px;
+            width: 320px;
+            transition: 0.3s;
+            position: relative;
+        }
+.card-plano.destaque {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .card-plano.destaque .tag-destaque {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .card-plano h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .preco span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .recursos {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .recursos li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .recursos li::before {
+            content: "✓ ";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .btn-plano {
+            display: block;
+            background-color: transparent;
+            color: white;
+            border: 2px solid var(--primary-color);
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .card-plano.destaque .btn-plano {
+            background-color: var(--primary-color);
+        }
+
+        .btn-plano:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050608;
+            padding: 40px 5%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #151922;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .card-plano.destaque { transform: scale(1); }
+            .grid-planos { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">IPTV <span>VALE</span></div>
+        <!-- Altere o link abaixo para o seu link do WhatsApp -->
+        <a href="https://wa.me" class="cta-header" target="_blank">Suporte</a>
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section class="hero">
+        <div class="badge-teste">🔥 Promoção Especial ativa</div>
+        <h1>Sua TV Sem Limites com a <br><span>IPTV VALE</span></h1>
+        <p>Tenha acesso imediato a milhares de canais abertos e fechados, filmes, séries e esportes ao vivo com estabilidade garantida e qualidade ultra HD.</p>
+        
+        <!-- Altere o link abaixo para o seu link de teste automático ou atendimento do WhatsApp -->
+        <a href="https://wa.me" class="btn-principal" target="_blank">
+            🎁 SOLICITAR TESTE GRÁTIS DE 3 DIAS
+        </a>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section class="planos">
+        <h2>Escolha o seu <span>Plano</span></h2>
+        
+        <div class="grid-planos">
+            <!-- Plano Mensal -->
+            <div class="card-plano">
+                <h3>Plano Mensal</h3>
+                <div class="preco">R$ 30<span>/mês</span></div>
+                <ul class="recursos">
+                    <li>+ de 80.000 Conteúdos</li>
+                    <li>Canais em HD, FHD e 4K</li>
+                    <li>Guia de Programação (EPG)</li>
+                    <li>Filmes e Séries Atualizados</li>
+                    <li>Suporte Técnico Especializado</li>
+                </ul>
+                <a href="https://wa.me" class="btn-plano" target="_blank">Contratar Agora</a>
+            </div>
+<!-- Plano 3 Meses -->
+            <div class="card-plano destaque">
+                <div class="tag-destaque">Mais Vendido</div>
+                <h3>Plano Trimestral</h3>
+                <div class="preco">R$ 75<span>/3 meses</span></div>
+                <ul class="recursos">
+                    <li>Acesso por 3 Meses Completos</li>
+                    <li>+ de 80.000 Conteúdos</li>
+                    <li>Canais em HD, FHD e 4K</li>
+                    <li>Filmes e Séries Atualizados</li>
+                    <li>Desconto Exclusivo</li>
+                </ul>
+                <a href="https://wa.me" class="btn-plano" target="_blank">Contratar Agora</a>
+            </div>
+
+            <!-- Plano 6 Meses -->
+            <div class="card-plano">
+                <h3>Plano Semestral</h3>
+                <div class="preco">R$ 130<span>/6 meses</span></div>
+                <ul class="recursos">
+                    <li>Acesso por 6 Meses Completos</li>
+                    <li>+ de 80.000 Conteúdos</li>
+                    <li>Canais em HD, FHD e 4K</li>
+                    <li>Filmes e Séries Atualizados</li>
+                    <li>Máxima Economia</li>
+                </ul>
+                <a href="https://wa.me" class="btn-plano" target="_blank">Contratar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 IPTV VALE. Todos os direitos reservados.</p>
+        <p>O uso de conexões está sujeito aos termos de contratação. Garantimos estabilidade e suporte técnico.</p>
+    </footer>
+
+</body>
+</html>
